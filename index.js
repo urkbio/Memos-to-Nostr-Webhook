@@ -25,10 +25,10 @@ if (!NOSTR_RELAYS.length) {
 // 处理来自 Memos 的 webhook
 app.post('/webhook', async (req, res) => {
   try {
-    const { payload } = req.body;
+    const { content } = req.body;
     
-    if (!payload || !payload.content) {
-      return res.status(400).json({ error: '无效的 payload' });
+    if (!content) {
+      return res.status(400).json({ error: '无效的请求内容' });
     }
 
     // 创建 Nostr 事件
@@ -38,7 +38,7 @@ app.post('/webhook', async (req, res) => {
       pubkey: publicKey,
       created_at: Math.floor(Date.now() / 1000),
       tags: [],
-      content: payload.content
+      content: content
     };
 
     // 计算事件哈希并签名

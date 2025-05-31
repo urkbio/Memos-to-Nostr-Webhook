@@ -2,9 +2,7 @@ const http = require('http');
 
 // 测试数据
 const testData = {
-  payload: {
-    content: '这是一条测试消息 ' + new Date().toLocaleString()
-  }
+  content: '这是一条测试消息 ' + new Date().toLocaleString()
 };
 
 // 发送请求
