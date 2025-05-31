@@ -25,10 +25,15 @@ if (!NOSTR_RELAYS.length) {
 // 处理来自 Memos 的 webhook
 app.post('/webhook', async (req, res) => {
   try {
-    const { content } = req.body;
+    const { activityType, memo } = req.body;
     
-    if (!content) {
+    if (!activityType || !memo || !memo.content) {
       return res.status(400).json({ error: '无效的请求内容' });
+    }
+
+    // 只处理新建笔记的事件
+    if (activityType !== 'memos.memo.created') {
+      return res.json({ success: true });
     }
 
     // 创建 Nostr 事件
@@ -38,7 +43,7 @@ app.post('/webhook', async (req, res) => {
       pubkey: publicKey,
       created_at: Math.floor(Date.now() / 1000),
       tags: [],
-      content: content
+      content: memo.content
     };
 
     // 计算事件哈希并签名

@@ -2,7 +2,13 @@ const http = require('http');
 
 // 测试数据
 const testData = {
-  content: '这是一条测试消息 ' + new Date().toLocaleString()
+  activityType: 'memos.memo.created',
+  creatorId: 1,
+  createTime: new Date().toISOString(),
+  memo: {
+    id: 1,
+    content: '这是一条测试消息 ' + new Date().toLocaleString()
+  }
 };
 
 // 发送请求
