@@ -13,8 +13,8 @@
 
 1. 克隆仓库：
 ```bash
-git clone [repository-url]
-cd webhooks
+git clone https://github.com/urkbio/Memos-to-Nostr-Webhook.git
+cd Memos-to-Nostr-Webhook
 ```
 
 2. 安装依赖：
@@ -38,6 +38,13 @@ cp .env.example .env
 ```bash
 npm run dev
 ```
+
+本地测试：
+```
+node test.js
+```
+测试脚本会发送一个包含当前时间的测试消息到你的 webhook 服务。
+
 
 生产环境运行：
 ```bash
