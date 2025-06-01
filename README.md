@@ -48,7 +48,11 @@ node test.js
 
 生产环境运行：
 ```bash
-npm start
+# 启动后台运行
+./run.sh
+
+# 停止服务
+./stop.sh
 ```
 
 ## Memos 配置
