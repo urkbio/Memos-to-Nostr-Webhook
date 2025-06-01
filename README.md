@@ -28,7 +28,7 @@ cp .env.example .env
 ```
 
 编辑 `.env` 文件，设置以下变量：
-- `NOSTR_PRIVATE_KEY`：你的 Nostr 私钥（hex 格式）
+- `NOSTR_PRIVATE_KEY`：你的 Nostr 私钥（hex 格式） 可通过[这个网站](https://damus.io/key/)进行密钥转换
 - `NOSTR_RELAYS`：要使用的 Nostr relay 地址，多个地址用逗号分隔
 - `PORT`：服务运行的端口号（可选，默认 3000）
 
